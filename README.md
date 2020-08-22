@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./writeup_imgs/NVIDIA.jpg "Model Visualization"
+[image1]: ./writeup_imgs/NVIDIA.jpeg "Model Visualization"
 [image2]: ./writeup_imgs/center_crop_sample.jpg "Sample Data Image"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
