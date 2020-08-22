@@ -88,7 +88,7 @@ For the left images I increase the steering angle by 0.2 and for the right image
 * Next we define two convolutional layer with filter depth as 64 and filter size as (3,3) and (1,1) stride followed by ELU activation funciton
 * Next step is to flatten the output from 2D to side by side
 * Here we apply first fully connected layer with 100 outputs
-* Here is the first time when we introduce Dropout with Dropout rate as 0.25 to combact overfitting
+* Here is the first time when we introduce Dropout with Dropout rate as 0.25 to combat overfitting
 * Next we introduce second fully connected layer with 50 outputs
 * Then comes a third connected layer with 10 outputs
 * And finally the layer with one output.
