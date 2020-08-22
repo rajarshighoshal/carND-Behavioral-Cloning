@@ -16,37 +16,44 @@ from keras.layers import Lambda, Cropping2D
 
 
 def download(url, file):
+    "function to download file in the given location ferom url"
     if not os.path.isfile(file):
         urlretrieve(url, file)
 
+def uncompress_features_labels(zip_file, name):
+    "function to uncompress files into a directory from a zip file"
+    if os.path.isdir(name):
+        os.rmdir(name)
+    else:
+        with ZipFile(zip_file) as zipfile:
+            zipfile.extractall('data')
 
+
+# download data into data.zip file
 download('https://s3.amazonaws.com/video.udacity-data.com/topher/2016/December/584f6edd_data/data.zip',
          'data.zip')  
 
-def uncompress_features_labels(directory, name):
-    if os.path.isdir(name):
-        print('Data extracted')
-    else:
-        with ZipFile(directory) as zipfile:
-            zipfile.extractall('data')
-
+# uncompress the data files from zip file
 uncompress_features_labels('data.zip', 'data')
 
 samples = []
 
+# iterate through all entries of driving log
 with open('./data/data/driving_log.csv') as csvfile:
     reader = csv.reader(csvfile)
-    next(reader, None)
+    next(reader, None) # ignore header row
     for line in reader:
         samples.append(line)
 
+# split into training and validation sample, withb 15% data as validation
 train_samples, validation_samples = train_test_split(samples,
                                                      test_size=0.15)
 
 def generator(sample_list, batch_size=32):
+    "generate training/testing samples from all the samples with the given batch size"
     num_samples = len(sample_list)
 
-    while 1:
+    while True:
         shuffle(sample_list)  # shuffling the total images
         for offset in range(0, num_samples, batch_size):
 
@@ -59,7 +66,7 @@ def generator(sample_list, batch_size=32):
 
                     name = './data/data/IMG/' + batch_sample[i].split('/')[-1]
                     center_image = cv2.cvtColor(cv2.imread(name),
-                                                cv2.COLOR_BGR2RGB)  
+                                                cv2.COLOR_BGR2RGB)  # convert cv2 BGR to RGB for drive.py
                     center_angle = float(batch_sample[3])  # getting the steering angle measurement
                     images.append(center_image)
 
@@ -147,11 +154,9 @@ model.add(
 # adam optimizer is used here
 model.compile(loss='mse', optimizer='adam')
 
-
+# use a epoch of 5
 model.fit_generator(train_generator, samples_per_epoch=len(train_samples), validation_data=validation_generator,
                     nb_val_samples=len(validation_samples), nb_epoch=5, verbose=1)
 
-
+# save the model
 model.save('model.h5')
-
-model.summary()
