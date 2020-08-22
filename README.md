@@ -55,7 +55,7 @@ The model.py file contains the code for training and saving the convolution neur
 #### Model Overview
 I decided to test the model provided by NVIDIA as suggested by Udacity. The model architecture is described by NVIDIA [here](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf). As an input this model takes in image of the shape (60,266,3) but our dashboard images/training images are of size (160,320,3). I decided to keep the architecture of the remaining model same but instead feed an image of different input shape which I will discuss later.
 Here is the model architecture:
-image1
+![alt text][image1]
 
 #### Loading Data
 I used the the dataset provided by Udacity
@@ -64,7 +64,7 @@ Since we have a steering angle associated with three images we introduce a corre
 I decided to introduce a correction factor of 0.2
 For the left images I increase the steering angle by 0.2 and for the right images I decrease the steering angle by 0.2
 Sample Image:
-image2
+![alt text][image2]
 
 #### 2. Attempts to reduce overfitting in the model
 
