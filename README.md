@@ -61,7 +61,7 @@ I used the the dataset provided by Udacity
 I am using OpenCV to load the images, by default the images are read by OpenCV in BGR format but we need to convert to RGB as in drive.py it is processed in RGB format.
 Since we have a steering angle associated with three images we introduce a correction factor for left and right images since the steering angle is captured by the center angle.
 I decided to introduce a correction factor of 0.2
-For the left images I increase the steering angle by 0.2 and for the right images I decrease the steering angle by 0.2.<br/>Sample Image:
+For the left images I increase the steering angle by 0.2 and for the right images I decrease the steering angle by 0.2.<br/>Sample Image:<br/>
 ![alt text][image2]
 
 #### Preprocessing
@@ -80,9 +80,9 @@ For the left images I increase the steering angle by 0.2 and for the right image
 * I made a little changes to the original NVIDIA architecture. My final architecture:
 ![alt_text][image3]
 * As it is clear from the model summary my first step is to apply normalization to the all the images.
-* Second step is to crop the image 70 pixels from top and 25 pixels from bottom. The image was cropped from top because I did not wanted to distract the model with trees and sky and 25 pixels from the bottom so as to remove the dashboard that is coming in the images.<br/>Sample Image:
+* Second step is to crop the image 70 pixels from top and 25 pixels from bottom. The image was cropped from top because I did not wanted to distract the model with trees and sky and 25 pixels from the bottom so as to remove the dashboard that is coming in the images.<br/>Sample Image:<br/>
 ![alt_text][image4]
-Cropped Image:
+<br/>Cropped Image:<br/>
 ![alt_text][image5]
 
 #### 2. Attempts to reduce overfitting in the model
