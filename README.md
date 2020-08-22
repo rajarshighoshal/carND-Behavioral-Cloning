@@ -82,6 +82,8 @@ For the left images I increase the steering angle by 0.2 and for the right image
 * As it is clear from the model summary my first step is to apply normalization to the all the images.
 * Second step is to crop the image 70 pixels from top and 25 pixels from bottom. The image was cropped from top because I did not wanted to distract the model with trees and sky and 25 pixels from the bottom so as to remove the dashboard that is coming in the images.<br/>Sample Image:
 ![alt_text][image4]
+Cropped Image:
+![alt_text][image5]
 
 #### 2. Attempts to reduce overfitting in the model
 
