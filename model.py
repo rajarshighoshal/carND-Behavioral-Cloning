@@ -30,7 +30,7 @@ def uncompress_features_labels(zip_file, name):
 
 
 # download data into data.zip file
-download('https://s3.amazonaws.com/video.udacity-data.com/topher/2016/December/584f6edd_data/data.zip',
+download('https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip',
          'data.zip')  
 
 # uncompress the data files from zip file
